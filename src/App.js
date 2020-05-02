@@ -44,14 +44,12 @@ function App() {
   const [scores, setScores] = useState([])
 
   useEffect(() => {
-    const newWebsocket = new WebSocket("ws://racing-overlay.herokuapp.com")
+    const newWebsocket = new WebSocket("wss://racing-overlay.herokuapp.com")
     newWebsocket.onopen = function (event) {
       setWebsocket(newWebsocket)
     };
     newWebsocket.onmessage = (event) => {
-      console.log(event)
       const newScores = JSON.parse(event.data)
-      console.log(newScores)
       setScores(newScores)
     }
   }, [])
