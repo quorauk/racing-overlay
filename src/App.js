@@ -10,7 +10,6 @@ const Entry = styled.div`
   font-size: 34px;
 `
 const Batch = styled.span`
-  margin: auto;
   background-color: white;
   color: black;
   padding: 10px;
@@ -28,6 +27,7 @@ const Time = styled.span`
   margin: auto;
   padding: 10px;
   color: white;
+  font-family: sans-serif;
 `
 
 
@@ -58,7 +58,7 @@ function App() {
     <div className="App">
         <div>
           {scores.map((score, index) => (
-            <ScoreBlock entry={score} best={index === 0}/>
+            <ScoreBlock key={index} entry={score} best={index === 0}/>
           ))}
         </div>
     </div>
