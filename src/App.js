@@ -3,16 +3,17 @@ import './App.css';
 import styled from "styled-components"
 
 const Entry = styled.div`
-  max-width: 600px;
+  max-width: 500px;
   background-color: ${props => props.best ? '#80B908' : '#464646'};
   display: flex;
   margin: 10px auto;
   font-size: 34px;
 `
-const Batch = styled.span`
+const Position = styled.span`
   background-color: white;
   color: black;
   padding: 10px;
+  min-width: 50px;
 `
 
 const Name = styled.span`
@@ -21,6 +22,9 @@ const Name = styled.span`
   flex-grow: 1;
   text-align: start;
   color: white;
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  overflow: hidden;
 `
 
 const Time = styled.span`
@@ -33,7 +37,7 @@ const Time = styled.span`
 
 const ScoreBlock = ({entry, best}) => {
   return <Entry key={entry.name} best={best}>
-    <Batch>{entry.batch}</Batch>
+    <Position>{entry.position}</Position>
     <Name>{entry.name}</Name>
     <Time>{entry.best}</Time>
   </Entry>
